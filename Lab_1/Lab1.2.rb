@@ -41,7 +41,7 @@ def mult_of_dig(number)
 end
 
 #__________________________________________________________
-
+# Метод 1. Найти сумму простых делителей числа.
 def sum_div(x)   
   res = 0
   d = 2
@@ -55,6 +55,38 @@ def sum_div(x)
   end
   if x > 1
     res+=x
+  end
+  puts res
+end
+
+# Метод 2. Найти количество нечетных цифр числа, меньших 3
+def qua_dig(x)
+  res = 0
+  while x > 0
+    d = x % 10
+    if d % 2 != 0
+      if d < 3
+        res += 1
+      end
+    end
+    x /= 10
+  end
+  puts res
+end
+
+# Метод 3. Найти произведение таких делителей числа, сумма цифр
+# которых меньше, чем сумма цифр исходного числа.
+
+
+
+def mult_div(x)
+  res = 1
+  (1...x).each do |i|
+    if x % i == 0
+      if sum_dig(x) > sum_dig(x % i)
+        res *= i
+      end
+    end
   end
   puts res
 end
